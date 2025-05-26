@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>EXOTIC.LOLZ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts: DynaPuff -->
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +17,7 @@
 
     html, body {
       height: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'DynaPuff', cursive;
     }
 
     body {
@@ -21,9 +25,9 @@
       overflow: hidden;
     }
 
-    /* Background image with blur */
+    /* Blurred background image */
     .background {
-      background: url('https://img.freepik.com/premium-photo/white-blurry-black-background_678264-5806.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+      background: url('https://picsum.photos/1920/1080') no-repeat center center/cover;
       filter: blur(8px);
       position: absolute;
       width: 100%;
@@ -31,7 +35,7 @@
       z-index: 0;
     }
 
-    /* Centered white text */
+    /* Centered glowing text with DynaPuff font */
     .content {
       position: relative;
       z-index: 1;
@@ -43,6 +47,11 @@
       font-size: 3rem;
       font-weight: bold;
       text-align: center;
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.4);
+      transform: translateY(-50px); /* move text up */
     }
   </style>
 </head>
