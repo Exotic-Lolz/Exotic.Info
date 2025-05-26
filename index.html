@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EXOTIC.LOLZ</title>
+
+  <!-- Google Fonts: DynaPuff -->
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -10,38 +15,80 @@
       padding: 0;
     }
 
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'DynaPuff', cursive;
+    }
+
     body {
-      height: 100vh;
-      background: url('https://picsum.photos/1920/1080') no-repeat center center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
-    }
-
-    .blur-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(10px);
-      background-color: rgba(0, 0, 0, 0.4); /* dark tint with transparency */
-      z-index: 0;
+      color: white;
+      background: linear-gradient(135deg, #555, #888);
+      animation: gradientShift 10s infinite alternate;
+      position: relative;
     }
 
     h1 {
       font-size: 4rem;
-      font-weight: bold;
-      color: white;
+      z-index: 2;
+    }
+
+    /* Animated bubbles */
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       z-index: 1;
-      position: relative;
-      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background: linear-gradient(135deg, #555, #888);
+      }
+      100% {
+        background: linear-gradient(135deg, #777, #aaa);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="blur-overlay"></div>
+  <div class="bubbles">
+    <!-- Generate bubbles with different sizes and positions -->
+    <div class="bubble" style="width: 80px; height: 80px; left: 10%; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 120px; height: 120px; left: 25%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 60px; height: 60px; left: 40%; animation-delay: 4s;"></div>
+    <div class="bubble" style="width: 100px; height: 100px; left: 55%; animation-delay: 6s;"></div>
+    <div class="bubble" style="width: 70px; height: 70px; left: 70%; animation-delay: 8s;"></div>
+    <div class="bubble" style="width: 90px; height: 90px; left: 85%; animation-delay: 10s;"></div>
+  </div>
+
   <h1>EXOTIC.LOLZ</h1>
 </body>
 </html>
