@@ -15,25 +15,26 @@
       padding: 0;
     }
 
-    body, html {
+    html, body {
       height: 100%;
-      overflow: hidden;
       font-family: 'DynaPuff', cursive;
+      background: linear-gradient(135deg, #555, #888);
+      animation: gradientShift 10s infinite alternate;
+      overflow: hidden;
     }
 
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
-      background: linear-gradient(135deg, #555, #888);
-      animation: gradientShift 10s infinite alternate;
       position: relative;
     }
 
     h1 {
       font-size: 4rem;
+      color: white;
       z-index: 2;
+      text-align: center;
     }
 
     /* Animated bubbles */
@@ -80,7 +81,7 @@
 </head>
 <body>
   <div class="bubbles">
-    <!-- Generate bubbles with different sizes and positions -->
+    <!-- Animated bubbles -->
     <div class="bubble" style="width: 80px; height: 80px; left: 10%; animation-delay: 0s;"></div>
     <div class="bubble" style="width: 120px; height: 120px; left: 25%; animation-delay: 2s;"></div>
     <div class="bubble" style="width: 60px; height: 60px; left: 40%; animation-delay: 4s;"></div>
@@ -89,6 +90,7 @@
     <div class="bubble" style="width: 90px; height: 90px; left: 85%; animation-delay: 10s;"></div>
   </div>
 
+  <!-- Centered text -->
   <h1>EXOTIC.LOLZ</h1>
 </body>
 </html>
