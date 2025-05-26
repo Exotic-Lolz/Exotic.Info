@@ -25,7 +25,7 @@
 
     /* Blurred background image */
     .background {
-      background: url('https://img.freepik.com/premium-photo/white-blurry-black-background_678264-5806.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+      background: url('https://picsum.photos/1920/1080') no-repeat center center/cover;
       filter: blur(8px);
       position: fixed;
       top: 0;
@@ -47,13 +47,14 @@
       z-index: 1;
     }
 
-    /* Single bubble style */
+    /* Single blurred bubble */
     .bubble {
       position: absolute;
       bottom: -100px; /* start off screen */
       background: rgba(255, 255, 255, 0.7);
       border-radius: 50%;
       opacity: 0.8;
+      filter: blur(4px); /* blur added */
       animation-name: rise;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
@@ -90,7 +91,27 @@
         0 0 10px rgba(255, 255, 255, 0.8),
         0 0 20px rgba(255, 255, 255, 0.6),
         0 0 40px rgba(255, 255, 255, 0.4);
-      transform: translateY(-50px); /* move text up */
+      transform: translateY(-50px); /* initial up position */
+      animation: bounceUp 1s ease forwards;
+      /* animation will run once on page load */
+    }
+
+    /* Bounce up animation */
+    @keyframes bounceUp {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      60% {
+        transform: translateY(-30px);
+        opacity: 1;
+      }
+      80% {
+        transform: translateY(-50px);
+      }
+      100% {
+        transform: translateY(-50px);
+      }
     }
   </style>
 </head>
@@ -113,24 +134,24 @@
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
 
-      // Random horizontal start position (0% to 100% of viewport width)
+      // Random horizontal start position (0% to 100% viewport width)
       bubble.style.left = `${Math.random() * 100}vw`;
 
       // Random animation duration between 6s and 15s
       bubble.style.animationDuration = `${Math.random() * 9 + 6}s`;
 
-      // Random animation delay (start time)
+      // No animation delay needed for continuous spawn
       bubble.style.animationDelay = `0s`;
 
       bubblesContainer.appendChild(bubble);
 
-      // Remove bubble after animation to avoid DOM clutter
+      // Remove bubble after animation to prevent DOM overload
       bubble.addEventListener('animationend', () => {
         bubble.remove();
       });
     }
 
-    // Generate bubbles continuously every 300ms
+    // Generate bubbles every 300ms continuously
     setInterval(createBubble, 300);
   </script>
 </body>
